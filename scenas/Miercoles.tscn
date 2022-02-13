@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenas/Tarea.tscn" type="PackedScene" id=1]
+[ext_resource path="res://codigo/Dia.gd" type="Script" id=2]
+
+[node name="DiaMiercoles" type="MarginContainer"]
+margin_right = 512.0
+margin_bottom = 686.0
+rect_min_size = Vector2( 512, 0 )
+size_flags_horizontal = 7
+size_flags_vertical = 7
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxDia" type="VBoxContainer" parent="."]
+margin_right = 512.0
+margin_bottom = 686.0
+size_flags_horizontal = 7
+custom_constants/separation = 15
+
+[node name="LabelDia" type="Label" parent="VBoxDia"]
+margin_left = 220.0
+margin_right = 292.0
+margin_bottom = 14.0
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Miercoles"
+uppercase = true
+
+[node name="HBoxTarea" parent="VBoxDia" instance=ExtResource( 1 )]
+visible = false
+margin_top = 465.0
+margin_bottom = 489.0
+
+[node name="HBoxNuevaTarea" type="HBoxContainer" parent="VBoxDia"]
+visible = false
+margin_top = 331.0
+margin_right = 512.0
+margin_bottom = 355.0
+custom_constants/separation = 15
+
+[node name="LineEdit" type="LineEdit" parent="VBoxDia/HBoxNuevaTarea"]
+margin_right = 356.0
+margin_bottom = 24.0
+size_flags_horizontal = 7
+placeholder_text = "Ingresar nueva tarea"
+
+[node name="BtnOk" type="Button" parent="VBoxDia/HBoxNuevaTarea"]
+margin_left = 371.0
+margin_top = 2.0
+margin_right = 431.0
+margin_bottom = 22.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Agregar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnCancel" type="Button" parent="VBoxDia/HBoxNuevaTarea"]
+margin_left = 446.0
+margin_top = 2.0
+margin_right = 512.0
+margin_bottom = 22.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Cancelar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnNuevaTarea" type="Button" parent="VBoxDia"]
+visible = false
+margin_top = 506.0
+margin_right = 570.0
+margin_bottom = 526.0
+text = "BOTON NUEVA TAREA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnEditar" type="Button" parent="VBoxDia"]
+margin_top = 666.0
+margin_right = 512.0
+margin_bottom = 686.0
+size_flags_horizontal = 7
+size_flags_vertical = 10
+text = "EDITAR TAREAS"
+
+[connection signal="pressed" from="VBoxDia/HBoxNuevaTarea/BtnOk" to="." method="_on_BtnOk_pressed"]
+[connection signal="pressed" from="VBoxDia/HBoxNuevaTarea/BtnCancel" to="." method="_on_BtnCancel_pressed"]
+[connection signal="pressed" from="VBoxDia/BtnEditar" to="." method="_on_BtnEditar_pressed"]
